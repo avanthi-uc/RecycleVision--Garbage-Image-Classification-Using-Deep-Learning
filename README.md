@@ -121,7 +121,7 @@ pip install -r requirements.txt
 ## 📈 Results
 
 - Achieved high classification accuracy using transfer learning.
-- Resnet provided the best F1-score.
+- EfficientnetB0 provided the best F1-score.
 - Model generalizes well on unseen data.
 
 ---
