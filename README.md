@@ -10,7 +10,7 @@ Build a deep learning model that classifies images of waste into categories such
 - Paper
 - Cardboard
 - Trash 
-
+DATASET : https://www.kaggle.com/datasets/asdasdasasdas/garbage-classification?utm_source=chatgpt.com
 
 The system assists in automating recycling by sorting garbage based on image input using a deep learning model deployed via a simple user interface.
 
