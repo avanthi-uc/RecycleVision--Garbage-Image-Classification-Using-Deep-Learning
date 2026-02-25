@@ -524,12 +524,6 @@ elif page == "📊 EDA":
     📊 <b>Multiple Peaks:</b>  
     The presence of multiple peaks suggests varied regions within the image, such as shadows, textures, and reflective areas.
 
-    🎯 <b>Model Implication:</b>  
-    Since intensity values are concentrated in mid-to-high ranges and lack extreme variation, brightness alone is not sufficient for classification. The CNN must rely on structural and texture-based features for accurate predictions.
-
-    🌿 <b>Dataset Quality Insight:</b>  
-    The absence of extreme intensity values (near 0 or 255) suggests good exposure consistency across the dataset, which supports stable model training.
-
     </div>
     """, unsafe_allow_html=True)
 
@@ -590,18 +584,6 @@ elif page == "📊 EDA":
 
     📊 <b>Class Similarity:</b>  
     The distributions across classes appear relatively similar. This suggests that brightness alone is <b>not a strong discriminative feature</b> for classification.
-
-    🔍 <b>Model Implication:</b>  
-    Since grayscale intensity patterns overlap between categories, the CNN must rely more on:
-    <ul>
-    <li>Texture patterns</li>
-    <li>Edge structures</li>
-    <li>Object shapes</li>
-    <li>Color information</li>
-    </ul>
-
-    🌿 <b>Data Augmentation Insight:</b>  
-    Because the dataset is brightness-biased toward higher intensity values, introducing brightness variation during training (e.g., brightness augmentation) may improve model robustness under different lighting conditions.
 
     </div>
     """, unsafe_allow_html=True)
@@ -680,18 +662,7 @@ elif page == "📊 EDA":
     <li><b>Trash:</b> More irregular distribution reflecting mixed materials.</li>
     </ul>
 
-    🧠 <b>Model Implication:</b>  
-    While color provides some discriminative information, the CNN must primarily rely on:
-    <ul>
-    <li>Texture patterns</li>
-    <li>Edge structures</li>
-    <li>Object shape</li>
-    <li>Spatial features</li>
-    </ul>
-
-    🌿 <b>Training Insight:</b>  
-    Introducing color augmentation (brightness, contrast, hue variation) may improve model robustness under varying lighting conditions.
-
+    
     </div>
     """, unsafe_allow_html=True)
 
@@ -733,3 +704,4 @@ elif page == "📊 EDA":
 
     plt.tight_layout()
     st.pyplot(fig5)
+
