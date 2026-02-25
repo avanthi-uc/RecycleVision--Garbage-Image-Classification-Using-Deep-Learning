@@ -21,38 +21,6 @@ model = tf.keras.models.load_model("updated_model.keras")
 
 
 
-@st.cache_data(show_spinner=False)
-def compute_rgb_distributions(data_dir, class_names, max_images=10):
-    import cv2
-    import numpy as np
-    import os
-
-    rgb_intensity = {}
-    rgb_channels = {}
-
-    for cls in class_names:
-        folder = os.path.join(data_dir, cls)
-        r_vals, g_vals, b_vals = [], [], []
-
-        for img_name in os.listdir(folder)[:max_images]:
-            try:
-                img = cv2.imread(os.path.join(folder, img_name))
-                if img is None:
-                    continue
-                img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-
-                r_vals.extend(img[:, :, 0].ravel())
-                g_vals.extend(img[:, :, 1].ravel())
-                b_vals.extend(img[:, :, 2].ravel())
-            except:
-                pass
-
-        rgb_intensity[cls] = (r_vals, g_vals, b_vals)
-        rgb_channels[cls] = (r_vals, g_vals, b_vals)
-
-    return rgb_intensity, rgb_channels
-
-
 
 import streamlit as st
 
@@ -704,4 +672,5 @@ elif page == "📊 EDA":
 
     plt.tight_layout()
     st.pyplot(fig5)
+
 
