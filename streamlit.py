@@ -448,9 +448,7 @@ elif page == "📊 EDA":
 
     classes = [cls for cls in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, cls))]
 
-    # =====================================================
-    # ✅ KPI CARDS
-    # =====================================================
+    # KPI CARDS
 
     total_images = 2527
     total_categories = len(classes)
@@ -461,9 +459,7 @@ elif page == "📊 EDA":
 
     st.markdown("---")
 
-    # =====================================================
-    # ✅ CLASS DISTRIBUTION (FAST)
-    # =====================================================
+    # CLASS DISTRIBUTION
 
     class_counts = {
         cls: len(os.listdir(os.path.join(data_dir, cls)))
@@ -481,9 +477,7 @@ elif page == "📊 EDA":
 
     st.markdown("---")
 
-    # =====================================================
-    # ✅ UNIQUE IMAGE SIZE (FAST)
-    # =====================================================
+    # UNIQUE IMAGE SIZE 
 
     sizes = set()
     for cls in classes:
@@ -497,9 +491,7 @@ elif page == "📊 EDA":
 
     st.markdown("---")
 
-    # =====================================================
-    # ✅ SINGLE IMAGE PIXEL HISTOGRAM (VERY FAST)
-    # =====================================================
+    # SINGLE IMAGE PIXEL HISTOGRAM 
 
     st.subheader("🌑 Pixel Intensity Distribution (Single Image)")
 
@@ -542,9 +534,7 @@ elif page == "📊 EDA":
     """, unsafe_allow_html=True)
 
 
-    # =====================================================
-    # ✅ PIXEL INTENSITY PER CLASS (FAST + CACHED)
-    # =====================================================
+    # PIXEL INTENSITY PER CLASS
 
     @st.cache_data
     def compute_pixel_histograms(data_dir, classes):
@@ -619,9 +609,7 @@ elif page == "📊 EDA":
 
     st.markdown("---")
 
-    # =====================================================
-    # ✅ RGB DISTRIBUTION (FAST + CACHED)
-    # =====================================================
+    # RGB DISTRIBUTION
 
     @st.cache_data
     def compute_rgb_histograms(data_dir, classes):
@@ -709,9 +697,7 @@ elif page == "📊 EDA":
 
     st.markdown("---")
 
-    # =====================================================
-    # ✅ DATA AUGMENTATION (FAST VERSION)
-    # =====================================================
+    # DATA AUGMENTATION
 
     st.subheader("🔄 Data Augmentation Example")
 
@@ -747,10 +733,3 @@ elif page == "📊 EDA":
 
     plt.tight_layout()
     st.pyplot(fig5)
-
-
-
-
-
-
-
