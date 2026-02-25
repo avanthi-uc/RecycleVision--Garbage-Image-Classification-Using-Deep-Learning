@@ -21,9 +21,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# =========================
-# 🌿 GLOBAL SOFT GREEN THEME
-# =========================
+#  GLOBAL SOFT GREEN THEME
 
 st.markdown("""
 <style>
@@ -660,6 +658,7 @@ elif page == "📊 EDA":
 
     plt.tight_layout()
     st.pyplot(fig5)
+
 
 
 
