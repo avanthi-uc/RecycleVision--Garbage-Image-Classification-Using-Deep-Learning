@@ -7,15 +7,6 @@ import random
 import matplotlib.pyplot as plt
 from tensorflow.keras.applications.resnet50 import preprocess_input
 
-# Session state initialization
-if "prediction" not in st.session_state:
-    st.session_state["prediction"] = None
-
-if "confidence" not in st.session_state:
-    st.session_state["confidence"] = None
-
-if "probs" not in st.session_state:
-    st.session_state["probs"] = None
 
 model = tf.keras.models.load_model("updated_model.keras")
 
@@ -382,23 +373,20 @@ elif page == "🤖 Predict":
 
                 preds = model.predict(img_array)
 
-                st.session_state["prediction"] = CLASS_NAMES[np.argmax(preds)]
-                #st.session_state["confidence"] = float(np.max(preds))
-                st.session_state["probs"] = preds[0]
+                prediction = CLASS_NAMES[np.argmax(preds)]
+                confidence = float(np.max(preds))
+                probs = preds[0]
 
-    
-    if st.session_state["prediction"] is not None:
-        st.subheader("Prediction Result")
-        st.success(f" **{st.session_state['prediction'].upper()}**")
-        #st.info(f"Confidence: **{st.session_state['confidence']:.2%}**")
+                st.subheader("Prediction Result")
+                st.success(f" **{prediction.upper()}**")
+                st.info(f"Confidence: **{confidence:.2%}**")
 
-        st.subheader("Class Probabilities")
-        st.bar_chart(
-            {
-                CLASS_NAMES[i]: float(st.session_state["probs"][i])
-                for i in range(len(CLASS_NAMES))
-            }
-        )
+                st.subheader("Class Probabilities")
+                st.bar_chart({
+                    CLASS_NAMES[i]: float(probs[i])
+                    for i in range(len(CLASS_NAMES))
+                })
+
 
 elif page == "📊 EDA":
 
@@ -672,5 +660,6 @@ elif page == "📊 EDA":
 
     plt.tight_layout()
     st.pyplot(fig5)
+
 
 
